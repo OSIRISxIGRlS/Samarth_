@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+
+{% block title %}Practice Tests - SAMARTH PLUS{% endblock %}
+
+{% block content %}
+
+<div style="background: #f8fafc; min-height: 100vh; padding: 2rem;">
+
+    <div class="container" style="max-width: 1200px; margin: 0 auto;">
+
+        <!-- Header -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2.5rem;">
+            <div>
+                <h1 style="font-size: 2.7rem; margin-bottom: 0.5rem;">🧠 Practice Arena</h1>
+                <p style="color: #64748b; font-size: 1.15rem;">Master concepts through smart, personalized practice</p>
+            </div>
+            <div style="text-align: right;">
+                <div style="background: white; padding: 12px 24px; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); display: inline-block;">
+                    <strong>Today's Accuracy:</strong> <span style="color: #10b981; font-size: 1.4rem;">87%</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Stats -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-bottom: 3rem;">
+            <div style="background: white; padding: 1.5rem; border-radius: 16px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.06);">
+                <p style="color: #64748b;">Questions Solved Today</p>
+                <h2 style="font-size: 2.6rem; color: #4f46e5;">124</h2>
+            </div>
+            <div style="background: white; padding: 1.5rem; border-radius: 16px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.06);">
+                <p style="color: #64748b;">Streak</p>
+                <h2 style="font-size: 2.6rem; color: #4f46e5;">🔥 14 days</h2>
+            </div>
+            <div style="background: white; padding: 1.5rem; border-radius: 16px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.06);">
+                <p style="color: #64748b;">Weak Topics Targeted</p>
+                <h2 style="font-size: 2.6rem; color: #eab308;">8</h2>
+            </div>
+        </div>
+
+        <!-- Practice Modes -->
+        <h2 style="margin-bottom: 1.5rem;">Choose Practice Mode</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.8rem; margin-bottom: 4rem;">
+
+            <div onclick="startPractice('timed')" style="background: white; padding: 2rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); cursor: pointer; transition: 0.3s;">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">⏱️</div>
+                <h3>Timed Test</h3>
+                <p style="color: #64748b;">Real exam pressure. Improve speed & accuracy.</p>
+                <span style="display: inline-block; margin-top: 1rem; padding: 6px 16px; background: #4f46e5; color: white; border-radius: 50px; font-size: 0.95rem;">Start Now</span>
+            </div>
+
+            <div onclick="startPractice('untimed')" style="background: white; padding: 2rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); cursor: pointer; transition: 0.3s;">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">📖</div>
+                <h3>Learn & Practice</h3>
+                <p style="color: #64748b;">No time limit. Get instant explanations.</p>
+                <span style="display: inline-block; margin-top: 1rem; padding: 6px 16px; background: #4f46e5; color: white; border-radius: 50px; font-size: 0.95rem;">Start Now</span>
+            </div>
+
+            <div onclick="startPractice('pyq')" style="background: white; padding: 2rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); cursor: pointer; transition: 0.3s;">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">📜</div>
+                <h3>Previous Year Questions</h3>
+                <p style="color: #64748b;">JEE / NEET / Board PYQs with solutions.</p>
+                <span style="display: inline-block; margin-top: 1rem; padding: 6px 16px; background: #4f46e5; color: white; border-radius: 50px; font-size: 0.95rem;">Browse PYQs</span>
+            </div>
+        </div>
+
+        <!-- Recommended Tests -->
+        <h2 style="margin-bottom: 1.5rem;">Recommended for You</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 1.8rem;">
+
+            <div style="background: white; padding: 1.8rem; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.08);">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                    <span style="background: #fee2e2; color: #ef4444; padding: 4px 12px; border-radius: 9999px; font-size: 0.9rem;">High Priority</span>
+                    <span style="color: #64748b;">Physics</span>
+                </div>
+                <h3>Current Electricity • Full Chapter Test</h3>
+                <p style="color: #64748b; margin: 12px 0;">60 Questions • 90 Minutes</p>
+                <div style="height: 6px; background: #e2e8f0; border-radius: 9999px; margin: 1rem 0;">
+                    <div style="width: 35%; height: 100%; background: #4f46e5; border-radius: 9999px;"></div>
+                </div>
+                <button onclick="startTest(this)" 
+                        style="width: 100%; padding: 14px; background: #4f46e5; color: white; border: none; border-radius: 12px; cursor: pointer;">
+                    Start Test →
+                </button>
+            </div>
+
+            <div style="background: white; padding: 1.8rem; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.08);">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                    <span style="background: #ecfdf5; color: #10b981; padding: 4px 12px; border-radius: 9999px; font-size: 0.9rem;">Chemistry</span>
+                    <span style="color: #64748b;">Organic</span>
+                </div>
+                <h3>Aldehydes, Ketones & Carboxylic Acids</h3>
+                <p style="color: #64748b; margin: 12px 0;">40 Questions • Mixed Difficulty</p>
+                <button onclick="startTest(this)" 
+                        style="width: 100%; padding: 14px; background: #4f46e5; color: white; border: none; border-radius: 12px; cursor: pointer;">
+                    Start Practice
+                </button>
+            </div>
+
+        </div>
+
+        <!-- Subject Wise Quick Practice -->
+        <h2 style="margin: 3rem 0 1.5rem;">Quick Practice by Subject</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
+            <button onclick="quickPractice('Math')" style="padding: 14px 28px; background: white; border: 2px solid #4f46e5; color: #4f46e5; border-radius: 9999px; cursor: pointer;">Mathematics</button>
+            <button onclick="quickPractice('Physics')" style="padding: 14px 28px; background: white; border: 2px solid #4f46e5; color: #4f46e5; border-radius: 9999px; cursor: pointer;">Physics</button>
+            <button onclick="quickPractice('Chemistry')" style="padding: 14px 28px; background: white; border: 2px solid #4f46e5; color: #4f46e5; border-radius: 9999px; cursor: pointer;">Chemistry</button>
+            <button onclick="quickPractice('Biology')" style="padding: 14px 28px; background: white; border: 2px solid #4f46e5; color: #4f46e5; border-radius: 9999px; cursor: pointer;">Biology</button>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+function startPractice(mode) {
+    let msg = "";
+    if (mode === "timed") msg = "Starting Timed Test...";
+    else if (mode === "untimed") msg = "Starting Learn Mode...";
+    else if (mode === "pyq") msg = "Loading Previous Year Questions...";
+    
+    alert(msg + "\n\n(Practice interface would open here in the full app)");
+}
+
+function startTest(btn) {
+    btn.innerHTML = "Loading Test...";
+    setTimeout(() => {
+        alert("✅ Test Started!\n\nYou will be redirected to the live quiz interface.");
+        btn.innerHTML = "Start Test →";
+    }, 800);
+}
+
+function quickPractice(subject) {
+    alert(`Starting quick practice for ${subject}.\n\nAI will now generate 20 adaptive questions.`);
+}
+</script>
+{% endblock %}

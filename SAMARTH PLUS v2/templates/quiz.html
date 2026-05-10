@@ -1,0 +1,192 @@
+{% extends 'base.html' %}
+
+{% block title %}Live Quiz - SAMARTH PLUS{% endblock %}
+
+{% block content %}
+
+<div style="background: #f8fafc; min-height: 100vh; display: flex;">
+
+    <!-- Sidebar - Question Palette -->
+    <div style="width: 280px; background: white; border-right: 1px solid #e2e8f0; padding: 1.5rem; overflow-y: auto;">
+        <h3 style="margin-bottom: 1.5rem; color: #4f46e5;">Current Test</h3>
+        <p style="margin-bottom: 1rem; font-weight: 500;">Current Electricity • Physics</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px;" id="question-palette">
+            <!-- Populated by JS -->
+        </div>
+
+        <div style="margin-top: 2rem; padding: 1rem; background: #f1f5f9; border-radius: 12px; font-size: 0.95rem;">
+            <strong>Instructions:</strong><br>
+            • 60 Questions • 90 Minutes<br>
+            • +4 correct • -1 incorrect
+        </div>
+    </div>
+
+    <!-- Main Quiz Area -->
+    <div style="flex: 1; padding: 2rem; max-width: 900px; margin: 0 auto;">
+        
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem;">
+            <div>
+                <strong>Question <span id="current-q">1</span>/60</strong>
+            </div>
+            <div style="background: white; padding: 10px 24px; border-radius: 50px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); display: flex; align-items: center; gap: 10px;">
+                <span>⏱️</span>
+                <span id="timer" style="font-size: 1.3rem; font-weight: 600; color: #4f46e5;">89:45</span>
+            </div>
+            <button onclick="submitQuiz()" 
+                    style="padding: 10px 28px; background: #ef4444; color: white; border: none; border-radius: 50px; cursor: pointer;">
+                End Test
+            </button>
+        </div>
+
+        <!-- Question Card -->
+        <div style="background: white; padding: 2.5rem; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); min-height: 420px;">
+            <p id="question-text" style="font-size: 1.25rem; line-height: 1.6; margin-bottom: 2rem;">
+                Two point charges +q and -q are placed at a distance 2a apart. The electric field at the midpoint between them is:
+            </p>
+
+            <div id="options" style="display: flex; flex-direction: column; gap: 12px;">
+                <!-- Options populated by JS -->
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div style="display: flex; justify-content: space-between; margin-top: 2rem;">
+            <button onclick="prevQuestion()" 
+                    style="padding: 14px 32px; background: white; border: 2px solid #4f46e5; color: #4f46e5; border-radius: 12px; cursor: pointer;">
+                    ← Previous
+            </button>
+            <button onclick="nextQuestion()" 
+                    style="padding: 14px 40px; background: #4f46e5; color: white; border: none; border-radius: 12px; cursor: pointer;">
+                    Next →
+            </button>
+        </div>
+    </div>
+
+    <!-- Right Sidebar -->
+    <div style="width: 260px; background: white; border-left: 1px solid #e2e8f0; padding: 1.5rem;">
+        <h4 style="margin-bottom: 1rem;">Progress</h4>
+        <div style="height: 8px; background: #e2e8f0; border-radius: 9999px; margin-bottom: 1rem;">
+            <div style="width: 35%; height: 100%; background: #4f46e5; border-radius: 9999px;"></div>
+        </div>
+        <p style="text-align: center; font-size: 0.95rem; color: #64748b;">21 of 60 answered</p>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+// Sample Questions
+const questions = [
+    {
+        q: "Two point charges +q and -q are placed at a distance 2a apart. The electric field at the midpoint between them is:",
+        options: ["Zero", "Towards +q", "Towards -q", "Perpendicular to line joining charges"],
+        answer: 2
+    }
+    // You can add more questions here
+];
+
+let currentQuestion = 0;
+let answers = new Array(questions.length).fill(null);
+let timeLeft = 89 * 60 + 45; // 89 minutes 45 seconds
+
+function startTimer() {
+    const timerEl = document.getElementById('timer');
+    const interval = setInterval(() => {
+        if (timeLeft <= 0) {
+            clearInterval(interval);
+            submitQuiz();
+            return;
+        }
+        timeLeft--;
+        const min = Math.floor(timeLeft / 60);
+        const sec = timeLeft % 60;
+        timerEl.textContent = `${min}:${sec < 10 ? '0' : ''}${sec}`;
+    }, 1000);
+}
+
+function renderQuestion() {
+    document.getElementById('current-q').textContent = currentQuestion + 1;
+    
+    const q = questions[currentQuestion];
+    document.getElementById('question-text').textContent = q.q;
+    
+    const optionsDiv = document.getElementById('options');
+    optionsDiv.innerHTML = '';
+    
+    q.options.forEach((option, index) => {
+        const div = document.createElement('div');
+        div.style.cssText = `padding: 18px; border: 2px solid #e2e8f0; border-radius: 12px; cursor: pointer; transition: all 0.2s;`;
+        div.textContent = `${String.fromCharCode(65 + index)}. ${option}`;
+        div.onclick = () => selectAnswer(index, div);
+        
+        if (answers[currentQuestion] === index) {
+            div.style.borderColor = '#4f46e5';
+            div.style.backgroundColor = '#f0f9ff';
+        }
+        optionsDiv.appendChild(div);
+    });
+    
+    updatePalette();
+}
+
+function selectAnswer(index, element) {
+    answers[currentQuestion] = index;
+    renderQuestion();
+}
+
+function nextQuestion() {
+    if (currentQuestion < questions.length - 1) {
+        currentQuestion++;
+        renderQuestion();
+    }
+}
+
+function prevQuestion() {
+    if (currentQuestion > 0) {
+        currentQuestion--;
+        renderQuestion();
+    }
+}
+
+function updatePalette() {
+    const palette = document.getElementById('question-palette');
+    palette.innerHTML = '';
+    
+    for (let i = 0; i < 60; i++) {   // Change 60 to questions.length if dynamic
+        const btn = document.createElement('div');
+        btn.textContent = i + 1;
+        btn.style.cssText = `width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border-radius: 8px; font-size: 0.9rem; cursor: pointer; border: 2px solid #e2e8f0;`;
+        
+        if (i === currentQuestion) {
+            btn.style.background = '#4f46e5';
+            btn.style.color = 'white';
+        } else if (answers[i] !== null) {
+            btn.style.background = '#10b981';
+            btn.style.color = 'white';
+        }
+        
+        btn.onclick = () => {
+            currentQuestion = i;
+            renderQuestion();
+        };
+        palette.appendChild(btn);
+    }
+}
+
+function submitQuiz() {
+    if (confirm("Are you sure you want to submit the test?")) {
+        alert("✅ Test Submitted Successfully!\n\nScore: 84% (AI Analysis Ready)");
+        // window.location.href = '/result';
+    }
+}
+
+// Initialize everything
+document.addEventListener('DOMContentLoaded', function() {
+    renderQuestion();
+    startTimer();
+    updatePalette();
+});
+</script>
+{% endblock %}

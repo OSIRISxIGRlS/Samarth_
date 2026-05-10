@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+
+{% block title %}Create Account - SAMARTH PLUS{% endblock %}
+
+{% block content %}
+
+<div style="min-height: 100vh; display: flex; align-items: center; background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);">
+    <div class="container" style="max-width: 1100px; margin: 0 auto; padding: 2rem;">
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; background: white; border-radius: 24px; box-shadow: 0 20px 60px rgba(0,0,0,0.1); overflow: hidden;">
+
+            <!-- Left Side - Registration Form -->
+            <div style="padding: 4rem 3.5rem;">
+                
+                <div style="margin-bottom: 2rem;">
+                    <h1 style="font-size: 2.4rem; margin-bottom: 0.5rem;">Join SAMARTH PLUS</h1>
+                    <p style="color: #64748b; font-size: 1.1rem;">Start your journey to better scores today</p>
+                </div>
+
+                <form>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                        <div>
+                            <label style="display: block; margin-bottom: 8px; font-weight: 500;">Full Name</label>
+                            <input type="text" placeholder="Rahul Sharma" 
+                                   style="width: 100%; padding: 16px 20px; border: 2px solid #e2e8f0; border-radius: 12px; font-size: 1.05rem;">
+                        </div>
+                        <div>
+                            <label style="display: block; margin-bottom: 8px; font-weight: 500;">Class / Exam</label>
+                            <select style="width: 100%; padding: 16px 20px; border: 2px solid #e2e8f0; border-radius: 12px; font-size: 1.05rem;">
+                                <option>Class 11</option>
+                                <option>Class 12 - CBSE</option>
+                                <option>JEE 2026 Aspirant</option>
+                                <option>NEET 2026 Aspirant</option>
+                                <option>Class 10</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 1rem;">
+                        <label style="display: block; margin-bottom: 8px; font-weight: 500;">Email Address</label>
+                        <input type="email" placeholder="you@example.com" 
+                               style="width: 100%; padding: 16px 20px; border: 2px solid #e2e8f0; border-radius: 12px; font-size: 1.05rem;">
+                    </div>
+
+                    <div style="margin-bottom: 1rem;">
+                        <label style="display: block; margin-bottom: 8px; font-weight: 500;">Phone Number</label>
+                        <input type="tel" placeholder="+91 98765 43210" 
+                               style="width: 100%; padding: 16px 20px; border: 2px solid #e2e8f0; border-radius: 12px; font-size: 1.05rem;">
+                    </div>
+
+                    <div style="margin-bottom: 1rem;">
+                        <label style="display: block; margin-bottom: 8px; font-weight: 500;">Create Password</label>
+                        <input type="password" placeholder="••••••••" 
+                               style="width: 100%; padding: 16px 20px; border: 2px solid #e2e8f0; border-radius: 12px; font-size: 1.05rem;">
+                    </div>
+
+                    <div style="margin-bottom: 1.5rem;">
+                        <label style="display: block; margin-bottom: 8px; font-weight: 500;">Confirm Password</label>
+                        <input type="password" placeholder="••••••••" 
+                               style="width: 100%; padding: 16px 20px; border: 2px solid #e2e8f0; border-radius: 12px; font-size: 1.05rem;">
+                    </div>
+
+                    <button type="button" onclick="window.location.href='/dashboard'" 
+                            style="width: 100%; padding: 18px; background: linear-gradient(135deg, #4f46e5, #7c3aed); color: white; border: none; border-radius: 12px; font-size: 1.1rem; font-weight: 600; cursor: pointer; margin-bottom: 1.5rem;">
+                        Create Free Account
+                    </button>
+
+                    <p style="font-size: 0.9rem; color: #64748b; text-align: center;">
+                        By signing up, you agree to our <a href="#" style="color: #4f46e5;">Terms</a> and <a href="#" style="color: #4f46e5;">Privacy Policy</a>
+                    </p>
+                </form>
+
+                <div style="margin: 2rem 0; text-align: center; color: #94a3b8;">OR</div>
+
+                <!-- Social Signup -->
+                <div style="display: flex; gap: 1rem;">
+                    <button style="flex: 1; padding: 14px; border: 2px solid #e2e8f0; background: white; border-radius: 12px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                        <span style="font-size: 1.4rem;">G</span> Google
+                    </button>
+                    <button style="flex: 1; padding: 14px; border: 2px solid #e2e8f0; background: white; border-radius: 12px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                        <span style="font-size: 1.4rem;"></span> Apple
+                    </button>
+                </div>
+
+                <p style="text-align: center; margin-top: 2.5rem; color: #64748b;">
+                    Already have an account? 
+                    <a href="/login" style="color: #4f46e5; font-weight: 600; text-decoration: none;">Login here</a>
+                </p>
+            </div>
+
+            <!-- Right Side - Benefits -->
+            <div style="background: linear-gradient(135deg, #4f46e5, #7c3aed); color: white; padding: 4rem 3rem; display: flex; flex-direction: column; justify-content: center;">
+                <div style="font-size: 3.5rem; margin-bottom: 1.5rem;">🎯</div>
+                <h2 style="font-size: 2.2rem; line-height: 1.2; margin-bottom: 2rem;">
+                    Get Started in 30 Seconds
+                </h2>
+                
+                <ul style="list-style: none; display: flex; flex-direction: column; gap: 1.2rem; font-size: 1.1rem;">
+                    <li>✅ 14 Days Free Access</li>
+                    <li>✅ Personalized AI Study Plan</li>
+                    <li>✅ Full access to AI Chatbot</li>
+                    <li>✅ Progress tracking &amp; analytics</li>
+                    <li>✅ No credit card required</li>
+                </ul>
+
+                <div style="margin-top: 3rem; padding: 1.8rem; background: rgba(255,255,255,0.15); border-radius: 16px;">
+                    <p style="font-style: italic;">
+                        "Signed up today. Already solved 40 questions with AI help. Loving it!"
+                    </p>
+                    <p style="margin-top: 1rem; font-weight: 600;">— Priya, Class 12 CBSE</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

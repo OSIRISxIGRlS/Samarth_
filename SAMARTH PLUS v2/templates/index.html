@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+
+{% block title %}SAMARTH PLUS - AI Study System for JEE, NEET & Board Exams{% endblock %}
+
+{% block content %}
+
+<!-- Hero Section -->
+<header style="padding: 140px 0 100px; background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%); color: white; text-align: center; position: relative; overflow: hidden;">
+    <div class="container">
+        <div style="max-width: 900px; margin: 0 auto;">
+            <div style="display: inline-block; background: rgba(255,255,255,0.2); padding: 8px 20px; border-radius: 50px; margin-bottom: 1rem;">
+                🔥 Trusted by 15,000+ Students | JEE | NEET | Boards
+            </div>
+            
+            <h1 style="font-size: 3.8rem; line-height: 1.1; margin-bottom: 1.5rem;">
+                Study Smarter.<br>
+                Score Higher.<br>
+                <span style="color: #fbbf24;">With AI That Understands You.</span>
+            </h1>
+            
+            <p style="font-size: 1.4rem; max-width: 700px; margin: 0 auto 2.5rem; opacity: 0.95;">
+                Your personal AI tutor that creates study plans, explains concepts, generates quizzes, and tracks your progress — all in one place.
+            </p>
+
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="/dashboard" class="btn" style="padding: 18px 48px; font-size: 1.2rem;">
+                    Try Free for 14 Days →
+                </a>
+                <a href="/chatbot" class="btn" style="background: transparent; border: 2px solid white; padding: 18px 40px; font-size: 1.2rem;">
+                    Talk to AI Now
+                </a>
+            </div>
+
+            <div style="margin-top: 2.5rem; font-size: 1.1rem;">
+                ⭐⭐⭐⭐⭐ <strong>4.9/5</strong> from 2,847 students
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Trust Bar -->
+<div style="background: white; padding: 20px 0; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
+    <div class="container" style="text-align: center; opacity: 0.7;">
+        As seen in: The Hindu • India Today • Education Times
+    </div>
+</div>
+
+<!-- Features -->
+<section style="padding: 100px 0;">
+    <div class="container">
+        <h2 style="text-align: center; font-size: 2.6rem; margin-bottom: 3.5rem;">Everything You Need to Excel</h2>
+        
+        <div class="features">
+            <div class="feature-card">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">🤖</div>
+                <h3>AI Study Companion</h3>
+                <p>24/7 personal tutor that explains any topic in simple language with examples.</p>
+            </div>
+            <div class="feature-card">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">📅</div>
+                <h3>Smart Study Planner</h3>
+                <p>AI creates personalized daily & weekly plans based on your syllabus and goals.</p>
+            </div>
+            <div class="feature-card">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">📊</div>
+                <h3>Progress Analytics</h3>
+                <p>Real-time tracking of weak topics, accuracy, and improvement.</p>
+            </div>
+            <div class="feature-card">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">🧠</div>
+                <h3>Auto Quiz Generator</h3>
+                <p>Creates unlimited MCQs, previous year questions & custom tests.</p>
+            </div>
+            <div class="feature-card">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">📄</div>
+                <h3>PDF & Notes Summarizer</h3>
+                <p>Upload any notes or PDF and get instant summaries and mind maps.</p>
+            </div>
+            <div class="feature-card">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">🎯</div>
+                <h3>Goal Tracker</h3>
+                <p>Set targets and let AI guide you to achieve them.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Comparison Teaser -->
+<section style="padding: 80px 0; background: #f8fafc;">
+    <div class="container" style="text-align: center;">
+        <h2 style="margin-bottom: 1.5rem;">Better Than ChatGPT, Byju's & Others</h2>
+        <a href="/compare" class="btn" style="font-size: 1.2rem; padding: 16px 50px;">
+            See Full Comparison →
+        </a>
+    </div>
+</section>
+
+<!-- Testimonials -->
+<section style="padding: 100px 0;">
+    <div class="container">
+        <h2 style="text-align: center; margin-bottom: 3rem;">What Students Are Saying</h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 2rem;">
+            <div class="testimonial">
+                <p>"Samarth Plus helped me improve from 72 to 94 percentile in JEE mocks in just 45 days. The AI explains better than my coaching teachers!"</p>
+                <div class="testimonial-author">— Aryan Sharma, JEE 2026 Aspirant</div>
+            </div>
+            <div class="testimonial">
+                <p>"The personalized study plan and weak topic tracker is a game changer. Finally an app that actually understands Indian curriculum."</p>
+                <div class="testimonial-author">— Priya Malhotra, Class 12 CBSE</div>
+            </div>
+            <div class="testimonial">
+                <p>"I love the AI chatbot. I can ask doubts at 2 AM and still get perfect answers. Best investment for my NEET prep."</p>
+                <div class="testimonial-author">— Rohan Patel, NEET 2026</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Final CTA -->
+<section style="padding: 120px 0; background: linear-gradient(135deg, #4f46e5, #7c3aed); color: white; text-align: center;">
+    <div class="container">
+        <h2 style="font-size: 2.8rem; margin-bottom: 1.5rem;">Ready to Study Like a Topper?</h2>
+        <p style="font-size: 1.4rem; max-width: 600px; margin: 0 auto 2.5rem;">
+            Join thousands of students already using SAMARTH PLUS
+        </p>
+        <a href="#" class="btn" style="background: white; color: #4f46e5; padding: 20px 60px; font-size: 1.3rem;">
+            Start 14 Days Free Trial
+        </a>
+        <p style="margin-top: 1.5rem; opacity: 0.9;">No credit card required • Cancel anytime</p>
+    </div>
+</section>
+
+{% endblock %}

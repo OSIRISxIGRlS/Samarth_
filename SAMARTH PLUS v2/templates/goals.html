@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard - SAMARTH PLUS{% endblock %}
+
+{% block content %}
+
+<div style="display: flex; min-height: 100vh; background: #f8fafc;">
+
+    <!-- Sidebar -->
+    <div style="width: 260px; background: white; border-right: 1px solid #e2e8f0; padding: 2rem 1rem; position: fixed; height: 100vh; overflow-y: auto;">
+        <div style="font-size: 1.8rem; font-weight: 700; color: #4f46e5; margin-bottom: 2rem; padding-left: 1rem;">
+            SAMARTH <span style="color:#7c3aed;">PLUS</span>
+        </div>
+        
+        <div style="margin-bottom: 2rem;">
+            <div style="padding: 12px 16px; background: #f1f5f9; border-radius: 12px; font-weight: 600; margin-bottom: 1rem;">
+                👋 Hi, Rahul Sharma
+            </div>
+        </div>
+
+        <nav style="display: flex; flex-direction: column; gap: 6px;">
+            <a href="#" style="padding: 12px 16px; border-radius: 10px; background: #4f46e5; color: white; text-decoration: none; font-weight: 500;">🏠 Dashboard</a>
+            <a href="#" style="padding: 12px 16px; border-radius: 10px; color: #475569; text-decoration: none; font-weight: 500;">📚 My Subjects</a>
+            <a href="#" style="padding: 12px 16px; border-radius: 10px; color: #475569; text-decoration: none; font-weight: 500;">📝 Study Plan</a>
+            <a href="#" style="padding: 12px 16px; border-radius: 10px; color: #475569; text-decoration: none; font-weight: 500;">🤖 AI Chatbot</a>
+            <a href="#" style="padding: 12px 16px; border-radius: 10px; color: #475569; text-decoration: none; font-weight: 500;">📊 Progress</a>
+            <a href="#" style="padding: 12px 16px; border-radius: 10px; color: #475569; text-decoration: none; font-weight: 500;">🧠 Weak Topics</a>
+            <a href="#" style="padding: 12px 16px; border-radius: 10px; color: #475569; text-decoration: none; font-weight: 500;">📄 Notes & PDFs</a>
+        </nav>
+
+        <div style="margin-top: auto; padding: 1.5rem; background: #f8fafc; border-radius: 12px; font-size: 0.95rem; margin-top: 3rem;">
+            <strong>Current Streak</strong><br>
+            🔥 <span style="font-size: 1.8rem; font-weight: 700;">12 days</span>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div style="margin-left: 260px; flex: 1; padding: 2rem;">
+        
+        <div style="max-width: 1200px; margin: 0 auto;">
+            
+            <!-- Top Bar -->
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                <h1 style="font-size: 2.2rem; font-weight: 700;">Dashboard</h1>
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                    <div style="background: white; padding: 10px 16px; border-radius: 50px; box-shadow: 0 2px 10px rgba(0,0,0,0.08);">
+                        Class 12 • CBSE
+                    </div>
+                    <button onclick="alert('AI Assistant opened!')" 
+                            style="background: #4f46e5; color: white; border: none; padding: 12px 24px; border-radius: 50px; cursor: pointer;">
+                        💬 Ask AI Anything
+                    </button>
+                </div>
+            </div>
+
+            <!-- Stats Cards -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-bottom: 3rem;">
+                <div style="background: white; padding: 1.8rem; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.06);">
+                    <p style="color: #64748b;">Overall Progress</p>
+                    <h2 style="font-size: 2.8rem; font-weight: 700; color: #4f46e5;">78%</h2>
+                    <p style="color: #10b981;">↑ 12% this month</p>
+                </div>
+                <div style="background: white; padding: 1.8rem; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.06);">
+                    <p style="color: #64748b;">Hours Studied</p>
+                    <h2 style="font-size: 2.8rem; font-weight: 700;">42.5</h2>
+                    <p style="color: #64748b;">This month</p>
+                </div>
+                <div style="background: white; padding: 1.8rem; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.06);">
+                    <p style="color: #64748b;">Quizzes Taken</p>
+                    <h2 style="font-size: 2.8rem; font-weight: 700;">18</h2>
+                    <p style="color: #10b981;">Avg Score: 84%</p>
+                </div>
+                <div style="background: white; padding: 1.8rem; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.06);">
+                    <p style="color: #64748b;">Current Rank</p>
+                    <h2 style="font-size: 2.8rem; font-weight: 700;">#12</h2>
+                    <p style="color: #eab308;">In your batch</p>
+                </div>
+            </div>
+
+            <!-- Today's Plan & AI Chat -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                
+                <!-- Today's Study Plan -->
+                <div style="background: white; border-radius: 16px; padding: 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.06);">
+                    <h3 style="margin-bottom: 1.5rem; font-size: 1.3rem;">📅 Today's Study Plan</h3>
+                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px;">
+                        <li style="padding: 12px; background: #f8fafc; border-radius: 10px; display: flex; justify-content: space-between;">
+                            <span>Physics - Current Electricity</span>
+                            <span style="color: #10b981;">✓ Completed</span>
+                        </li>
+                        <li style="padding: 12px; background: #f8fafc; border-radius: 10px; display: flex; justify-content: space-between;">
+                            <span>Chemistry - Organic Reactions</span>
+                            <span style="color: #f59e0b;">In Progress</span>
+                        </li>
+                        <li style="padding: 12px; background: #f8fafc; border-radius: 10px;">
+                            <span>Math - Integration Practice (15 questions)</span>
+                        </li>
+                    </ul>
+                    <button style="margin-top: 1.5rem; width: 100%; padding: 14px; background: #4f46e5; color: white; border: none; border-radius: 12px; cursor: pointer;">
+                        Generate New Plan with AI
+                    </button>
+                </div>
+
+                <!-- Recent AI Conversations -->
+                <div style="background: white; border-radius: 16px; padding: 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.06);">
+                    <h3 style="margin-bottom: 1.5rem; font-size: 1.3rem;">🤖 Recent AI Chats</h3>
+                    <div style="display: flex; flex-direction: column; gap: 12px;">
+                        <div style="padding: 14px; background: #f8fafc; border-radius: 10px; cursor: pointer;">
+                            <strong>Explain Doppler Effect</strong><br>
+                            <small style="color: #64748b;">2 hours ago • 4 min read</small>
+                        </div>
+                        <div style="padding: 14px; background: #f8fafc; border-radius: 10px; cursor: pointer;">
+                            <strong>Make 10 MCQs on Electrostatics</strong><br>
+                            <small style="color: #64748b;">Yesterday</small>
+                        </div>
+                    </div>
+                    <button onclick="window.location.href='/chatbot'" 
+                            style="margin-top: 1.5rem; width: 100%; padding: 14px; background: transparent; border: 2px solid #4f46e5; color: #4f46e5; border-radius: 12px; cursor: pointer;">
+                        Open AI Chatbot →
+                    </button>
+                </div>
+            </div>
+
+            <!-- Weak Topics -->
+            <div style="margin-top: 2.5rem; background: white; border-radius: 16px; padding: 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.06);">
+                <h3 style="margin-bottom: 1.5rem;">⚠️ Topics Needing Attention</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
+                    <div style="background: #fee2e2; padding: 12px 20px; border-radius: 9999px; color: #ef4444;">Rotational Motion</div>
+                    <div style="background: #fef3c7; padding: 12px 20px; border-radius: 9999px; color: #d97706;">Aldehydes & Ketones</div>
+                    <div style="background: #dbeafe; padding: 12px 20px; border-radius: 9999px; color: #2563eb;">Vector Algebra</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+
+{% block title %}SAMARTH PLUS AI Chatbot - Your 24/7 Study Companion{% endblock %}
+
+{% block content %}
+
+<header style="padding: 120px 0 80px; background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%); color: white; text-align: center;">
+    <div class="container">
+        <h1 style="font-size: 3rem; margin-bottom: 1rem;">
+            Meet Your AI Study Companion
+        </h1>
+        <p class="tagline" style="font-size: 1.4rem; max-width: 700px; margin: 0 auto 2rem;">
+            Ask anything. Get instant explanations, summaries, quizzes, and personalized study plans.
+        </p>
+        <div class="stars">★★★★★ <strong>Trusted by 15,000+ Students</strong></div>
+    </div>
+</header>
+
+<section style="padding: 60px 0; background: #f8fafc;">
+    <div class="container">
+        
+        <!-- Chatbot Demo -->
+        <div style="max-width: 800px; margin: 0 auto; background: white; border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.1); overflow: hidden;">
+            
+            <!-- Chat Header -->
+            <div style="background: #4f46e5; color: white; padding: 18px 24px; display: flex; align-items: center; gap: 12px;">
+                <div style="width: 40px; height: 40px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.4rem;">
+                    🤖
+                </div>
+                <div>
+                    <strong>Samarth AI</strong><br>
+                    <small>Online • Powered by Advanced AI</small>
+                </div>
+            </div>
+
+            <!-- Chat Messages -->
+            <div id="chat-window" style="height: 480px; padding: 24px; overflow-y: auto; background: #f8fafc; display: flex; flex-direction: column; gap: 16px;">
+                
+                <!-- Example Messages -->
+                <div class="message bot" style="max-width: 80%; align-self: flex-start; background: white; padding: 14px 18px; border-radius: 18px 18px 18px 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                    Hi! I'm Samarth AI. What subject are you struggling with today?
+                </div>
+
+                <div class="message user" style="max-width: 80%; align-self: flex-end; background: #4f46e5; color: white; padding: 14px 18px; border-radius: 18px 18px 4px 18px;">
+                    Explain Newton's Laws of Motion with examples
+                </div>
+
+                <div class="message bot" style="max-width: 80%; align-self: flex-start; background: white; padding: 14px 18px; border-radius: 18px 18px 18px 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                    Sure! Here’s a simple breakdown:<br><br>
+                    <strong>1st Law (Inertia):</strong> An object stays at rest or in motion unless acted upon by a force.<br>
+                    Example: Book on table doesn’t move until you push it.
+                </div>
+            </div>
+
+            <!-- Input Area -->
+            <div style="padding: 20px; background: white; border-top: 1px solid #e2e8f0; display: flex; gap: 12px;">
+                <input 
+                    type="text" 
+                    id="user-input"
+                    placeholder="Ask anything... (e.g., Summarize Chapter 5, Make a quiz on Photosynthesis)"
+                    style="flex: 1; padding: 16px 20px; border: 2px solid #e2e8f0; border-radius: 50px; font-size: 1.05rem; outline: none;">
+                
+                <button onclick="sendMessage()" 
+                        style="background: #4f46e5; color: white; border: none; width: 56px; height: 56px; border-radius: 50%; cursor: pointer; font-size: 1.4rem;">
+                    ↑
+                </button>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px; color: #64748b;">
+            <p>This is a live demo. The real chatbot in SAMARTH PLUS can:</p>
+            <ul style="display: inline-block; text-align: left; margin-top: 10px;">
+                <li>✅ Generate personalized study plans</li>
+                <li>✅ Create MCQs &amp; practice tests</li>
+                <li>✅ Explain concepts in simple language</li>
+                <li>✅ Translate &amp; summarize PDFs/notes</li>
+                <li>✅ Track your weak topics</li>
+            </ul>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+function sendMessage() {
+    const input = document.getElementById('user-input');
+    const chatWindow = document.getElementById('chat-window');
+    
+    if (input.value.trim() === '') return;
+
+    // Add user message
+    const userMsg = document.createElement('div');
+    userMsg.className = 'message user';
+    userMsg.style.cssText = 'max-width: 80%; align-self: flex-end; background: #4f46e5; color: white; padding: 14px 18px; border-radius: 18px 18px 4px 18px;';
+    userMsg.textContent = input.value;
+    chatWindow.appendChild(userMsg);
+
+    // Scroll to bottom
+    chatWindow.scrollTop = chatWindow.scrollHeight;
+
+    // Clear input
+    const question = input.value;
+    input.value = '';
+
+    // Simulate bot reply
+    setTimeout(() => {
+        const botMsg = document.createElement('div');
+        botMsg.className = 'message bot';
+        botMsg.style.cssText = 'max-width: 80%; align-self: flex-start; background: white; padding: 14px 18px; border-radius: 18px 18px 18px 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);';
+        botMsg.textContent = "Great question! Here's a detailed explanation... (This would be connected to real AI in the full version)";
+        chatWindow.appendChild(botMsg);
+        chatWindow.scrollTop = chatWindow.scrollHeight;
+    }, 800);
+}
+
+// Allow pressing Enter to send
+document.getElementById('user-input').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') sendMessage();
+});
+</script>
+{% endblock %}
